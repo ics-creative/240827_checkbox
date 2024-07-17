@@ -46,14 +46,14 @@
     /* チェックボックスを2列に並べる */
     .checkbox-group--2col {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 1fr 1fr;
     }
 
     /* チェックボックス全体 */
     .checkbox {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 16px;
+      gap: 10px;
       padding: 8px;
       -webkit-user-select: none;
       user-select: none;
@@ -61,7 +61,6 @@
 
     /* チェックボックスのアイコン */
     .checkbox_icon {
-      margin-top: 1px;
       appearance: none;
       width: 24px;
       height: 24px;
@@ -100,7 +99,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-
       background-image: url(icon.svg);
       background-size: contain;
       background-repeat: no-repeat;
@@ -123,12 +121,12 @@
     }
 
     /* テキスト：選択済みのスタイル */
-    .checkbox_icon:checked .checkbox_text {
+    .checkbox_icon:checked + .checkbox_text {
       color: #3223b3;
     }
 
     /* テキスト：非活性のスタイル */
-    .checkbox_icon:disabled .checkbox_text {
+    .checkbox_icon:disabled + .checkbox_text {
       opacity: 0.4;
     }
   </style>
@@ -137,17 +135,17 @@
   <!-- 1列のチェックボックス一覧 -->
   <fieldset class="checkbox-group">
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox">
+      <input class="checkbox_icon" type="checkbox" />
       <span class="checkbox_text">りんご</span>
     </label>
 
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox" checked>
+      <input class="checkbox_icon" type="checkbox" checked />
       <span class="checkbox_text">みかん</span>
     </label>
 
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox" disabled>
+      <input class="checkbox_icon" type="checkbox" disabled />
       <span class="checkbox_text">ぶどう</span>
     </label>
   </fieldset>
@@ -155,27 +153,27 @@
   <!-- 2列のチェックボックス一覧 -->
   <fieldset class="checkbox-group checkbox-group--2col">
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox">
+      <input class="checkbox_icon" type="checkbox" />
       <span class="checkbox_text">りんご</span>
     </label>
 
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox" checked>
+      <input class="checkbox_icon" type="checkbox" checked />
       <span class="checkbox_text">みかん</span>
     </label>
 
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox" disabled>
+      <input class="checkbox_icon" type="checkbox" disabled />
       <span class="checkbox_text">ぶどう</span>
     </label>
 
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox">
+      <input class="checkbox_icon" type="checkbox" />
       <span class="checkbox_text">ばなな</span>
     </label>
 
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox">
+      <input class="checkbox_icon" type="checkbox" />
       <span class="checkbox_text">もも</span>
     </label>
   </fieldset>
