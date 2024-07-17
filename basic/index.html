@@ -4,10 +4,137 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>シンプルなチェックボックスの作例</title>
-  <link rel="stylesheet" href="../common.css">
-  <link rel="stylesheet" href="index.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      padding: 16px;
+      font-family: sans-serif;
+      color: #404040;
+      background: #F3F4F4;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* チェックボックスを1列に並べる */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      overflow: auto;
+      padding: 8px;
+      border: solid 1px #bdbdbd;
+      border-radius: 8px;
+      background-color: #fff
+    }
+
+    /* チェックボックスを2列に並べる */
+    .checkbox-group--2col {
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+
+    /* チェックボックス全体 */
+    .checkbox {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      padding: 8px;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* チェックボックスのアイコン */
+    .checkbox_icon {
+      margin-top: 1px;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      position: relative;
+      border: solid 2px #808080;
+      border-radius: 4px;
+      background: #FFFFFF;
+      transition-property: background-color, border, box-shadow, color;
+      transition-duration: 0.2s;
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    /* アイコン：未選択時・選択済みのホバー演出 */
+    .checkbox:hover .checkbox_icon:not(:disabled) {
+      border-color: #3223b3;
+      box-shadow: 0 0 0 4px #d2ceff;
+    }
+
+    /* アイコン：選択済みのスタイル */
+    .checkbox_icon:checked {
+      border-color: #3223b3;
+      background: #3223b3;
+    }
+
+    /* アイコン：非活性のスタイル */
+    .checkbox_icon:disabled {
+      opacity: 0.4;
+    }
+
+    /* アイコンのチェックマーク */
+    .checkbox_icon::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background-image: url(icon.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    /* チェックマーク：選択済みのスタイル */
+    .checkbox_icon:checked::before {
+      opacity: 1;
+    }
+
+    /* テキスト */
+    .checkbox_text {
+      color: #404040;
+      transition: color 0.2s;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: normal;
+    }
+
+    /* テキスト：選択済みのスタイル */
+    .checkbox_icon:checked .checkbox_text {
+      color: #3223b3;
+    }
+
+    /* テキスト：非活性のスタイル */
+    .checkbox_icon:disabled .checkbox_text {
+      opacity: 0.4;
+    }
+  </style>
 </head>
 <body>
+  <!-- 1列のチェックボックス一覧 -->
   <fieldset class="checkbox-group">
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox">
@@ -22,6 +149,34 @@
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" disabled>
       <span class="checkbox_text">ぶどう</span>
+    </label>
+  </fieldset>
+
+  <!-- 2列のチェックボックス一覧 -->
+  <fieldset class="checkbox-group checkbox-group--2col">
+    <label class="checkbox">
+      <input class="checkbox_icon" type="checkbox">
+      <span class="checkbox_text">りんご</span>
+    </label>
+
+    <label class="checkbox">
+      <input class="checkbox_icon" type="checkbox" checked>
+      <span class="checkbox_text">みかん</span>
+    </label>
+
+    <label class="checkbox">
+      <input class="checkbox_icon" type="checkbox" disabled>
+      <span class="checkbox_text">ぶどう</span>
+    </label>
+
+    <label class="checkbox">
+      <input class="checkbox_icon" type="checkbox">
+      <span class="checkbox_text">ばなな</span>
+    </label>
+
+    <label class="checkbox">
+      <input class="checkbox_icon" type="checkbox">
+      <span class="checkbox_text">もも</span>
     </label>
   </fieldset>
 </body>
