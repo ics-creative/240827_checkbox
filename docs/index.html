@@ -4,30 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>シンプルなチェックボックスの作例</title>
+  <link rel="stylesheet" href="./common.css">
   <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
+    :root {
+      --color-primary: #3223b3; /* 紺色 */
     }
-
-    html {
-      height: 100%;
-    }
-
-    body {
-      min-height: 100%;
-      padding: 16px;
-      font-family: sans-serif;
-      color: #404040;
-      background: #F3F4F4;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      justify-content: center;
-      align-items: center;
-    }
-
     /* チェックボックスを1列に並べる */
     .checkbox-group {
       display: grid;
@@ -35,12 +16,12 @@
       gap: 0;
       width: 100%;
       max-width: 320px;
+      padding: 8px;
       margin: 0 auto;
       overflow: auto;
-      padding: 8px;
+      background-color: #fff;
       border: solid 1px #bdbdbd;
-      border-radius: 8px;
-      background-color: #fff
+      border-radius: 8px
     }
 
     /* チェックボックスを2列に並べる */
@@ -55,34 +36,27 @@
       grid-template-columns: auto 1fr;
       gap: 10px;
       padding: 8px;
-      -webkit-user-select: none;
-      user-select: none;
+      color: #404040;
     }
 
     /* チェックボックスのアイコン */
     .checkbox_icon {
-      appearance: none;
+      position: relative;
       width: 24px;
       height: 24px;
-      position: relative;
+      appearance: none;
+      background: #FFF;
       border: solid 2px #808080;
       border-radius: 4px;
-      background: #FFFFFF;
-      transition-property: background-color, border, box-shadow, color;
-      transition-duration: 0.2s;
       box-shadow: 0 0 0 0 transparent;
-    }
-
-    /* アイコン：未選択時・選択済みのホバー演出 */
-    .checkbox:hover .checkbox_icon:not(:disabled) {
-      border-color: #3223b3;
-      box-shadow: 0 0 0 4px #d2ceff;
+      transition-duration: 0.2s;
+      transition-property: background-color, border, box-shadow, color;
     }
 
     /* アイコン：選択済みのスタイル */
     .checkbox_icon:checked {
-      border-color: #3223b3;
-      background: #3223b3;
+      background: var(--color-primary);
+      border-color: var(--color-primary);
     }
 
     /* アイコン：非活性のスタイル */
@@ -90,18 +64,24 @@
       opacity: 0.4;
     }
 
+    /* アイコン：未選択時・選択済みのホバー演出 */
+    .checkbox:hover .checkbox_icon:not(:disabled) {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 4px #d2ceff; /* 薄い紺色 */
+    }
+
     /* アイコンのチェックマーク */
     .checkbox_icon::before {
-      content: "";
-      display: block;
       position: absolute;
       top: 0;
       left: 0;
+      display: block;
       width: 100%;
       height: 100%;
-      background-image: url(icon.svg);
-      background-size: contain;
+      content: "";
+      background-image: url("icon.svg");
       background-repeat: no-repeat;
+      background-size: contain;
       opacity: 0;
       transition: opacity 0.2s;
     }
@@ -113,16 +93,16 @@
 
     /* テキスト */
     .checkbox_text {
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.5;
       color: #404040;
       transition: color 0.2s;
-      font-size: 16px;
-      line-height: 1.5;
-      font-weight: normal;
     }
 
     /* テキスト：選択済みのスタイル */
     .checkbox_icon:checked + .checkbox_text {
-      color: #3223b3;
+      color: var(--color-primary);
     }
 
     /* テキスト：非活性のスタイル */
