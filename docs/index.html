@@ -49,18 +49,18 @@
       transition-property: background-color, border, box-shadow, color;
     }
 
-    /* アイコン：選択済みのスタイル */
+    /* アイコン：選択済みの見た目 */
     .checkbox_icon:checked {
       background: var(--color-navy-primary);
       border-color: var(--color-navy-primary);
     }
 
-    /* アイコン：非活性のスタイル */
+    /* アイコン：非活性の見た目 */
     .checkbox_icon:disabled {
       opacity: 0.4;
     }
 
-    /* アイコン：未選択時・選択済みのホバー演出 */
+    /* アイコン：非選択時・選択済みのホバー演出 */
     .checkbox:hover .checkbox_icon:not(:disabled) {
       border-color: var(--color-navy-primary);
       box-shadow: 0 0 0 4px var(--color-navy-secondary); /* 薄い紺色 */
@@ -82,7 +82,7 @@
       transition: opacity 0.2s;
     }
 
-    /* チェックマーク：選択済みのスタイル */
+    /* チェックマーク：選択済みの見た目 */
     .checkbox_icon:checked::before {
       opacity: 1;
     }
@@ -96,12 +96,12 @@
       transition: color 0.2s;
     }
 
-    /* テキスト：選択済みのスタイル */
+    /* テキスト：選択済みの見た目 */
     .checkbox_icon:checked + .checkbox_text {
       color: var(--color-navy-primary);
     }
 
-    /* テキスト：非活性のスタイル */
+    /* テキスト：非活性の見た目 */
     .checkbox_icon:disabled + .checkbox_text {
       opacity: 0.4;
     }
