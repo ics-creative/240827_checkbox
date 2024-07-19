@@ -6,9 +6,6 @@
   <title>シンプルなチェックボックスの作例</title>
   <link rel="stylesheet" href="./common.css">
   <style>
-    :root {
-      --color-primary: #3223b3; /* 紺色 */
-    }
     /* チェックボックスを1列に並べる */
     .checkbox-group {
       display: grid;
@@ -19,8 +16,8 @@
       padding: 8px;
       margin: 0 auto 32px;
       overflow: auto;
-      background-color: #fff;
-      border: solid 1px #bdbdbd;
+      background-color: var(--white);
+      border: solid 1px var(--color-gray-tertiary);
       border-radius: 8px
     }
 
@@ -36,7 +33,6 @@
       grid-template-columns: auto 1fr;
       gap: 10px;
       padding: 8px;
-      color: #404040;
     }
 
     /* チェックボックスのアイコン */
@@ -45,8 +41,8 @@
       width: 24px;
       height: 24px;
       appearance: none;
-      background: #FFF;
-      border: solid 2px #808080;
+      background: var(--white);
+      border: solid 2px var(--color-gray-secondary);
       border-radius: 4px;
       box-shadow: 0 0 0 0 transparent;
       transition-duration: 0.2s;
@@ -55,8 +51,8 @@
 
     /* アイコン：選択済みのスタイル */
     .checkbox_icon:checked {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
+      background: var(--color-navy-primary);
+      border-color: var(--color-navy-primary);
     }
 
     /* アイコン：非活性のスタイル */
@@ -66,8 +62,8 @@
 
     /* アイコン：未選択時・選択済みのホバー演出 */
     .checkbox:hover .checkbox_icon:not(:disabled) {
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 4px #d2ceff; /* 薄い紺色 */
+      border-color: var(--color-navy-primary);
+      box-shadow: 0 0 0 4px var(--color-navy-secondary); /* 薄い紺色 */
     }
 
     /* アイコンのチェックマーク */
@@ -96,13 +92,13 @@
       font-size: 16px;
       font-weight: normal;
       line-height: 1.5;
-      color: #404040;
+      color: var(--text-color);
       transition: color 0.2s;
     }
 
     /* テキスト：選択済みのスタイル */
     .checkbox_icon:checked + .checkbox_text {
-      color: var(--color-primary);
+      color: var(--color-navy-primary);
     }
 
     /* テキスト：非活性のスタイル */
@@ -113,6 +109,7 @@
 </head>
 <body>
   <!-- 1列のチェックボックス一覧 -->
+  <p>1列のチェックボックス一覧</p>
   <fieldset class="checkbox-group">
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" />
@@ -131,6 +128,7 @@
   </fieldset>
 
   <!-- 2列のチェックボックス一覧 -->
+  <p>2列のチェックボックス一覧</p>
   <fieldset class="checkbox-group checkbox-group--2col">
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" />
