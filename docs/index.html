@@ -18,26 +18,18 @@
       overflow: auto;
       background-color: #FFFFFF;
       border: solid 1px #BDBDBD;
-      border-radius: 8px
-    }
+      border-radius: 8px;
 
-    /* チェックボックスを2列に並べる */
-    .checkbox-group--2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
+      /* チェックボックスを2列に並べる */
+      &.checkbox-group--2col {
+        grid-template-columns: 1fr 1fr;
+      }
 
-    /* チェックボックスを2列に並べる */
-    .checkbox-group--3col {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      place-items: center;
-    }
-
-    /* チェックボックスを2列に並べる */
-    .checkbox-group--gap-wide {
-      place-items: center;
-      gap: 32px;
+      /* チェックボックスを3列に並べる */
+      &.checkbox-group--3col {
+        grid-template-columns: 1fr 1fr 1fr;
+        place-items: center;
+      }
     }
 
     /* チェックボックス全体 */
@@ -47,38 +39,48 @@
       grid-template-columns: auto 1fr;
       gap: 10px;
       padding: 8px;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.5;
+      color: #404040;
+      transition: color 0.2s;
+
+      /* チェックボックス全体（アイコンを上に表示） */
+      &.checkbox--icon-top {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        place-items: center;
+        text-align: center;
+      }
+
+      /* チェックボックス全体（アイコンを下に表示） */
+      &.checkbox--icon-bottom {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        place-items: center;
+        text-align: center;
+      }
+
+      /* チェックボックス全体（アイコンを右に表示） */
+      &.checkbox--icon-right {
+        width: auto;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        border-bottom: dashed 1px #BDBDBD;
+      }
+      &.checkbox--icon-right:last-child {
+        border-bottom: none;
+      }
     }
 
-    /* チェックボックス全体（アイコンを上に表示） */
-    .checkbox-with-icon-top {
-      width: fit-content;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr;
-      place-items: center;
-      gap: 10px;
-      padding: 8px;
-      text-align: center;
+    /* チェックボックス全体：選択済みの見た目 */
+    .checkbox:has(.checkbox_icon:checked) {
+      color: #3223B3; /* 紫色 */
     }
 
-    /* チェックボックス全体（アイコンを下に表示） */
-    .checkbox-with-icon-bottom {
-      width: fit-content;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr auto;
-      place-items: center;
-      gap: 10px;
-      padding: 8px;
-      text-align: center;
-    }
-
-    /* チェックボックス全体（アイコンを右に表示） */
-    .checkbox-with-icon-right {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-      padding: 8px;
+    /* チェックボックス全体：非活性の見た目 */
+    .checkbox:has(.checkbox_icon:disabled) {
+      opacity: 0.4;
     }
 
     /* チェックボックスのアイコン */
@@ -99,11 +101,6 @@
     .checkbox_icon:checked {
       background: #3223B3; /* 紫色 */
       border-color: #3223B3; /* 紫色 */
-    }
-
-    /* アイコン：非活性の見た目 */
-    .checkbox_icon:disabled {
-      opacity: 0.4;
     }
 
     /* アイコン：非選択時・選択済みのホバー演出 */
@@ -132,27 +129,6 @@
     .checkbox_icon:checked::before {
       opacity: 1;
     }
-
-    /* テキスト */
-    .checkbox_text {
-      font-size: 16px;
-      font-weight: normal;
-      line-height: 1.5;
-      color: #404040;
-      transition: color 0.2s;
-    }
-
-    .checkbox:has(.checkbox_icon:checked) .checkbox_text,
-    .checkbox-with-icon-top:has(.checkbox_icon:checked) .checkbox_text,
-    .checkbox-with-icon-bottom:has(.checkbox_icon:checked) .checkbox_text,
-    .checkbox-with-icon-right:has(.checkbox_icon:checked) .checkbox_text {
-      color: #3223B3; /* 紫色 */
-    }
-
-    /*!* テキスト：非活性の見た目 *!*/
-    .checkbox:has(.checkbox_icon:disabled) .checkbox_text {
-      opacity: 0.4;
-    }
   </style>
 </head>
 <body>
@@ -160,19 +136,19 @@
   <fieldset class="checkbox-group">
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" />
-      <span class="checkbox_text">りんご</span>
+      りんご
     </label>
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" checked />
-      <span class="checkbox_text">みかん</span>
+      みかん
     </label>
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" disabled />
-      <span class="checkbox_text">ぶどう</span>
+      ぶどう
     </label>
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" checked disabled />
-      <span class="checkbox_text">ばなな</span>
+      ばなな
     </label>
   </fieldset>
 
@@ -180,66 +156,66 @@
   <fieldset class="checkbox-group checkbox-group--2col">
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" />
-      <span class="checkbox_text">りんご</span>
+      りんご
     </label>
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" checked />
-      <span class="checkbox_text">みかん</span>
+      みかん
     </label>
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" disabled />
-      <span class="checkbox_text">ぶどう</span>
+      ぶどう
     </label>
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" checked disabled />
-      <span class="checkbox_text">ばなな</span>
+      ばなな
     </label>
   </fieldset>
 
   <p>アイコンの表示位置が右で、1列の表示</p>
   <fieldset class="checkbox-group">
-    <label class="checkbox-with-icon-right">
-      <span class="checkbox_text">りんご</span>
+    <label class="checkbox checkbox--icon-right">
+      りんご
       <input class="checkbox_icon" type="checkbox" />
     </label>
-    <label class="checkbox-with-icon-right">
-      <span class="checkbox_text">みかん</span>
+    <label class="checkbox checkbox--icon-right">
+      みかん
       <input class="checkbox_icon" type="checkbox" />
     </label>
-    <label class="checkbox-with-icon-right">
-      <span class="checkbox_text">ぶどう</span>
+    <label class="checkbox checkbox--icon-right">
+      ぶどう
       <input class="checkbox_icon" type="checkbox" />
     </label>
   </fieldset>
 
   <p>アイコンの表示位置が上で、1行の表示</p>
   <fieldset class="checkbox-group checkbox-group--3col">
-    <label class="checkbox-with-icon-top">
+    <label class="checkbox checkbox--icon-top">
       <input class="checkbox_icon" type="checkbox" />
-      <span class="checkbox_text">りんご</span>
+      りんご
     </label>
-    <label class="checkbox-with-icon-top">
+    <label class="checkbox checkbox--icon-top">
       <input class="checkbox_icon" type="checkbox" />
-      <span class="checkbox_text">みかん</span>
+      みかん
     </label>
-    <label class="checkbox-with-icon-top">
+    <label class="checkbox checkbox--icon-top">
       <input class="checkbox_icon" type="checkbox" />
-      <span class="checkbox_text">ぶどう</span>
+      ぶどう
     </label>
   </fieldset>
 
   <p>アイコンの表示位置が下で、1行の表示</p>
   <fieldset class="checkbox-group checkbox-group--3col">
-    <label class="checkbox-with-icon-bottom">
-      <span class="checkbox_text">りんご</span>
+    <label class="checkbox checkbox--icon-bottom">
+      りんご
       <input class="checkbox_icon" type="checkbox" />
     </label>
-    <label class="checkbox-with-icon-bottom">
-      <span class="checkbox_text">みかん</span>
+    <label class="checkbox checkbox--icon-bottom">
+      みかん
       <input class="checkbox_icon" type="checkbox" />
     </label>
-    <label class="checkbox-with-icon-bottom">
-      <span class="checkbox_text">ぶどう</span>
+    <label class="checkbox checkbox--icon-bottom">
+      ぶどう
       <input class="checkbox_icon" type="checkbox" />
     </label>
   </fieldset>
