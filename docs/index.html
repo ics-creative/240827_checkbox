@@ -83,7 +83,7 @@
       opacity: 0.4;
     }
 
-    /* チェックボックスのアイコン */
+    /* アイコン */
     .checkbox_icon {
       position: relative;
       width: 24px;
@@ -109,7 +109,7 @@
       box-shadow: 0 0 0 4px #D2CEFF; /* 薄い紫色 */
     }
 
-    /* アイコンのチェックマーク */
+    /* チェックマーク */
     .checkbox_icon::before {
       position: absolute;
       top: 0;
@@ -133,7 +133,7 @@
 </head>
 <body>
   <p>アイコンの表示位置が左で、1列の表示</p>
-  <fieldset class="checkbox-group">
+  <div class="checkbox-group">
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" />
       りんご
@@ -150,30 +150,30 @@
       <input class="checkbox_icon" type="checkbox" checked disabled />
       ばなな
     </label>
-  </fieldset>
+  </div>
 
   <p>アイコンの表示位置が左で、2列の表示</p>
-  <fieldset class="checkbox-group checkbox-group--2col">
+  <div class="checkbox-group checkbox-group--2col">
     <label class="checkbox">
       <input class="checkbox_icon" type="checkbox" />
       りんご
     </label>
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox" checked />
+      <input class="checkbox_icon" type="checkbox" />
       みかん
     </label>
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox" disabled />
+      <input class="checkbox_icon" type="checkbox" />
       ぶどう
     </label>
     <label class="checkbox">
-      <input class="checkbox_icon" type="checkbox" checked disabled />
+      <input class="checkbox_icon" type="checkbox" />
       ばなな
     </label>
-  </fieldset>
+  </div>
 
   <p>アイコンの表示位置が右で、1列の表示</p>
-  <fieldset class="checkbox-group">
+  <div class="checkbox-group">
     <label class="checkbox checkbox--icon-right">
       りんご
       <input class="checkbox_icon" type="checkbox" />
@@ -186,10 +186,10 @@
       ぶどう
       <input class="checkbox_icon" type="checkbox" />
     </label>
-  </fieldset>
+  </div>
 
   <p>アイコンの表示位置が上で、1行の表示</p>
-  <fieldset class="checkbox-group checkbox-group--3col">
+  <div class="checkbox-group checkbox-group--3col">
     <label class="checkbox checkbox--icon-top">
       <input class="checkbox_icon" type="checkbox" />
       りんご
@@ -202,10 +202,10 @@
       <input class="checkbox_icon" type="checkbox" />
       ぶどう
     </label>
-  </fieldset>
+  </div>
 
   <p>アイコンの表示位置が下で、1行の表示</p>
-  <fieldset class="checkbox-group checkbox-group--3col">
+  <div class="checkbox-group checkbox-group--3col">
     <label class="checkbox checkbox--icon-bottom">
       りんご
       <input class="checkbox_icon" type="checkbox" />
@@ -218,6 +218,6 @@
       ぶどう
       <input class="checkbox_icon" type="checkbox" />
     </label>
-  </fieldset>
+  </div>
 </body>
 </html>
