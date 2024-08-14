@@ -16,3 +16,29 @@ p {
   color: #404040;
   text-align: center;
 }
+
+/* チェックボックスを1列に並べる */
+.form-field {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  width: 100%;
+  max-width: 320px;
+  padding: 8px;
+  margin: 0 auto 32px;
+  overflow: auto;
+  background-color: #FFF;
+  border: solid 1px #BDBDBD;
+  border-radius: 8px;
+
+  /* チェックボックスを2列に並べる */
+  &.form-field--2-column {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* チェックボックスを3列に並べる */
+  &.form-field--3-column {
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+  }
+}
